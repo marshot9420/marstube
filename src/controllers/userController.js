@@ -1,4 +1,5 @@
 import User from "../models/User";
+import bcrypt from "bcrypt";
 
 export const getSignup = (req, res) => {
   return res.render("signup", { pageTitle: "Sign Up" });
@@ -42,7 +43,22 @@ export const getSignin = (req, res) => {
   return res.render("signin", { pageTitle: "Sign In" });
 };
 
-export const postSignin = (req, res) => {
+export const postSignin = async (req, res) => {
+  const { username, password } = req.body;
+  const pageTitle = "Sign In";
+  const user = await User.findOne({ username });
+  if (!user) {
+    return res.status(400).render("signin", {
+      pageTitle,
+      errorMessage: "An account with this username does not exists.",
+    });
+  }
+  const checkPassword = await bcrypt.compare(password, user.password);
+  if (!checkPassword) {
+    return res
+      .status(400)
+      .render("signin", { pageTitle, errorMessage: "Wrong password" });
+  }
   return res.redirect("/");
 };
 
