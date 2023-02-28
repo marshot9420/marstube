@@ -22,7 +22,7 @@ export const postUpload = async (req, res) => {
     });
     return res.redirect("/");
   } catch (error) {
-    return res.render("videos/upload", {
+    return res.status(400).render("videos/upload", {
       pageTitle: "Upload Video",
       errorMessage: error._message,
     });
@@ -42,7 +42,7 @@ export const getEdit = async (req, res) => {
   const { id } = req.params;
   const video = await Video.findById(id);
   if (!video) {
-    return res.render("404", { pageTitle: "404" });
+    return res.status(404).render("404", { pageTitle: "404" });
   }
   return res.render("videos/edit", { pageTitle: `Edit ${video.title}`, video });
 };
@@ -52,7 +52,7 @@ export const postEdit = async (req, res) => {
   const { title, description, hashtags } = req.body;
   const video = await Video.exists({ _id: id });
   if (!video) {
-    return res.render("404", { pageTitle: "404" });
+    return res.status(404).render("404", { pageTitle: "404" });
   }
   await Video.findByIdAndUpdate(id, {
     title,
