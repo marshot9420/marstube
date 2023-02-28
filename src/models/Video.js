@@ -12,7 +12,7 @@ const videoSchema = new mongoose.Schema({
     type: String,
     required: true,
     trim: true,
-    minLength: 0,
+    minLength: 1,
     maxLength: 500,
   },
   hashtags: [{ type: String, trim: true }],

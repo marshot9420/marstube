@@ -9,6 +9,14 @@ export const home = async (req, res) => {
   });
 };
 
+export const getUpload = (req, res) => {
+  return res.render("videos/upload", { pageTitle: "Upload Video" });
+};
+
+export const postUpload = (req, res) => {
+  return res.redirect("/");
+};
+
 export const search = (req, res) => {
   return res.render("search", { pageTitle: "Search Video" });
 };
@@ -22,14 +30,6 @@ export const getEdit = (req, res) => {
 };
 
 export const postEdit = (req, res) => {
-  return res.redirect("/");
-};
-
-export const getUpload = (req, res) => {
-  return res.render("videos/upload", { pageTitle: "Upload Video" });
-};
-
-export const postUpload = (req, res) => {
   return res.redirect("/");
 };
 
