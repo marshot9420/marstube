@@ -4,7 +4,6 @@ export const home = async (req, res) => {
   const videos = await Video.find({});
   return res.render("home", {
     pageTitle: "Home",
-    siteName: "MarsTube",
     videos,
   });
 };
@@ -30,12 +29,13 @@ export const postUpload = async (req, res) => {
   }
 };
 
-export const search = (req, res) => {
-  return res.render("search", { pageTitle: "Search Video" });
-};
-
-export const watch = (req, res) => {
-  return res.render("videos/watch", { pageTitle: "Watch Video" });
+export const watch = async (req, res) => {
+  const { id } = req.params;
+  const video = await Video.findById(id);
+  if (!video) {
+    return res.render("404", { pageTitle: "Video not found." });
+  }
+  return res.render("videos/watch", { pageTitle: video.title, video });
 };
 
 export const getEdit = (req, res) => {
@@ -44,6 +44,10 @@ export const getEdit = (req, res) => {
 
 export const postEdit = (req, res) => {
   return res.redirect("/");
+};
+
+export const search = (req, res) => {
+  return res.render("search", { pageTitle: "Search Video" });
 };
 
 export const deleteVideo = (req, res) => {
