@@ -16,7 +16,7 @@
   \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/styles.scss */ \"./src/client/scss/styles.scss\");\n/* harmony import */ var _img_logo_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../img/logo.png */ \"./src/client/img/logo.png\");\n\n\n\n//# sourceURL=webpack://marstube/./src/client/js/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/styles.scss */ \"./src/client/scss/styles.scss\");\n/* harmony import */ var _img_logo_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../img/logo.png */ \"./src/client/img/logo.png\");\n/* harmony import */ var _img_marstube_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../img/marstube.png */ \"./src/client/img/marstube.png\");\n/* harmony import */ var _img_404_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../img/404.jpg */ \"./src/client/img/404.jpg\");\n\n\n\n\n\n//# sourceURL=webpack://marstube/./src/client/js/main.js?");
 
 /***/ }),
 
@@ -30,6 +30,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 
 /***/ }),
 
+/***/ "./src/client/img/404.jpg":
+/*!********************************!*\
+  !*** ./src/client/img/404.jpg ***!
+  \********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"images/ea0ff67c5d709b830ead.jpg\";\n\n//# sourceURL=webpack://marstube/./src/client/img/404.jpg?");
+
+/***/ }),
+
 /***/ "./src/client/img/logo.png":
 /*!*********************************!*\
   !*** ./src/client/img/logo.png ***!
@@ -37,6 +47,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 eval("module.exports = __webpack_require__.p + \"images/f5c996be24f8f2480be6.png\";\n\n//# sourceURL=webpack://marstube/./src/client/img/logo.png?");
+
+/***/ }),
+
+/***/ "./src/client/img/marstube.png":
+/*!*************************************!*\
+  !*** ./src/client/img/marstube.png ***!
+  \*************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"images/e8da561d7da8401699be.png\";\n\n//# sourceURL=webpack://marstube/./src/client/img/marstube.png?");
 
 /***/ })
 
