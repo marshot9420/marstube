@@ -198,6 +198,70 @@ export const finishGoogleSignin = async (req, res) => {
   }
 };
 
+export const startKakaoSignin = (req, res) => {
+  const baseUrl = "https://kauth.kakao.com/oauth/authorize";
+  const config = {
+    client_id: process.env.KAKAO_CLIENT,
+    redirect_uri: process.env.KAKAO_REDIRECT_URL,
+    response_type: "code",
+  };
+  const params = new URLSearchParams(config).toString();
+  const finalUrl = `${baseUrl}?${params}`;
+  return res.redirect(finalUrl);
+};
+
+export const finishKakaoSignin = async (req, res) => {
+  const baseUrl = "https://kauth.kakao.com/oauth/token";
+  const config = {
+    grant_type: "authorization_code",
+    client_id: process.env.KAKAO_CLIENT,
+    redirect_uri: process.env.KAKAO_REDIRECT_URL,
+    code: req.query.code,
+    client_secret: process.env.KAKAO_SECRET,
+  };
+  const params = new URLSearchParams(config).toString();
+  const finalUrl = `${baseUrl}?${params}`;
+  const tokenRequest = await (
+    await fetch(finalUrl, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+      },
+    })
+  ).json();
+  if ("access_token" in tokenRequest) {
+    const { access_token } = tokenRequest;
+    const apiUrl = "https://kapi.kakao.com/v2/user/me";
+    const userData = await (
+      await fetch(apiUrl, {
+        headers: {
+          Authorization: `Bearer ${access_token}`,
+        },
+      })
+    ).json();
+    const { id, properties, kakao_account } = userData;
+    const { nickname, profile_image } = properties;
+    const { email } = kakao_account;
+    let user = await User.findOne({ email: email });
+    if (!user) {
+      user = await User.create({
+        avatarUrl: profile_image,
+        name: nickname,
+        username: `kakao_${id}`,
+        email: email,
+        password: "",
+        socialOnly: true,
+        location: "",
+      });
+    }
+    req.session.loggedIn = true;
+    req.session.user = user;
+    return res.redirect("/");
+  } else {
+    return res.redirect("/signin");
+  }
+};
+
 export const signout = (req, res) => {
   req.session.user = null;
   res.locals.loggedInUser = req.session.user;
