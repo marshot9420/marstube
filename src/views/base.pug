@@ -20,17 +20,24 @@ html(lang="ko")
                     input(type="text", name="keyword", placeholder="Search by Title")
                     button(type="submit")
                         i(class="fa-light fa-magnifying-glass")
-            div 
-                a(href="/")
-                    img(src="/static/images/f5c996be24f8f2480be6.png", height=50, width=50)
-            div 
-                ul 
-                    li 
-                        a(href="/videos/upload") Upload 
-                    li 
-                        a(href="/signup") Sign Up 
-                    li 
-                        a(href="/signin") Sign In 
+            if !req.session.loggedIn
+                div 
+                    ul 
+                        li 
+                            a(href="/signup") Sign Up 
+                        li 
+                            a(href="/signin") Sign In 
+                
+            else 
+                div 
+                    a(href="/")
+                        img(src="/static/images/f5c996be24f8f2480be6.png", height=50, width=50)
+                div 
+                    ul 
+                        li 
+                            a(href="/videos/upload") Upload
+                        li 
+                            a(href="/users/signout") Sign Out
         main 
             block content 
         include partials/footer
