@@ -20,7 +20,7 @@ html(lang="ko")
                     input(type="text", name="keyword", placeholder="Search by Title")
                     button(type="submit")
                         i(class="fa-light fa-magnifying-glass")
-            if !req.session.loggedIn
+            if !loggedIn
                 div 
                     ul 
                         li 
@@ -34,6 +34,8 @@ html(lang="ko")
                         img(src="/static/images/f5c996be24f8f2480be6.png", height=50, width=50)
                 div 
                     ul 
+                        li 
+                            a(href="#") #{loggedInUser.username}
                         li 
                             a(href="/videos/upload") Upload
                         li 
