@@ -5,7 +5,29 @@ export const getSignup = (req, res) => {
 };
 
 export const postSignup = async (req, res) => {
-  const { name, username, email, password, location } = req.body;
+  const { name, username, email, password, confirmPassword, location } =
+    req.body;
+  const pageTitle = "Sign Up";
+  if (password !== confirmPassword) {
+    return res.render("signup", {
+      pageTitle,
+      errorMessage: "Password confirmation does not match.",
+    });
+  }
+  const usernameExists = await User.exists({ username });
+  if (usernameExists) {
+    return res.render("signup", {
+      pageTitle,
+      errorMessage: "This username is already taken.",
+    });
+  }
+  const emailExists = await User.exists({ email });
+  if (emailExists) {
+    return res.render("signup", {
+      pageTitle,
+      errorMessage: "This email is already taken.",
+    });
+  }
   await User.create({
     name,
     username,
