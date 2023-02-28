@@ -5,6 +5,7 @@ html(lang="ko")
         include partials/meta-og
         //- 모바일 구현 후 모바일 앱 미리보기 설정 meta 태그 (al:ios, al:android) 추가
         title #{pageTitle} | #{siteName}
+        link(rel="stylesheet", href="/static/css/styles.css")
         block head
     body
         header 
@@ -12,3 +13,5 @@ html(lang="ko")
         main 
             block content 
         include partials/footer
+        script(src="/static/js/main.js")
+        block scripts
