@@ -18,11 +18,11 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
   session({
-    secret: "914fj10s1902e19!j9d0103",
-    resave: true,
-    saveUninitialized: true,
+    secret: process.env.COOKIE_SECRET,
+    resave: false,
+    saveUninitialized: false,
     store: MongoStore.create({
-      mongoUrl: "mongodb://127.0.0.1:27017/marstube",
+      mongoUrl: process.env.DB_URL,
     }),
   })
 );
