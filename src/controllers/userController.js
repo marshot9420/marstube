@@ -136,7 +136,72 @@ export const finishGithubSignin = async (req, res) => {
   }
 };
 
+export const startGoogleSignin = (req, res) => {
+  const baseUrl = "https://accounts.google.com/o/oauth2/v2/auth";
+  const config = {
+    client_id: process.env.GOOGLE_CLIENT,
+    response_type: "code",
+    scope: "openid profile email",
+    redirect_uri: process.env.GOOGLE_REDIRECT_URL,
+  };
+  const params = new URLSearchParams(config).toString();
+  const finalUrl = `${baseUrl}?${params}`;
+  return res.redirect(finalUrl);
+};
+
+export const finishGoogleSignin = async (req, res) => {
+  const baseUrl = "https://oauth2.googleapis.com/token";
+  const config = {
+    client_id: process.env.GOOGLE_CLIENT,
+    client_secret: process.env.GOOGLE_SECRET,
+    code: req.query.code,
+    redirect_uri: process.env.GOOGLE_REDIRECT_URL,
+    grant_type: "authorization_code",
+  };
+  const params = new URLSearchParams(config).toString();
+  const finalUrl = `${baseUrl}?${params}`;
+  const tokenRequest = await (
+    await fetch(finalUrl, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+      },
+    })
+  ).json();
+  if ("access_token" in tokenRequest) {
+    const { access_token } = tokenRequest;
+    const apiUrl = "https://www.googleapis.com/oauth2/v1/userinfo";
+    const userData = await (
+      await fetch(apiUrl, {
+        headers: {
+          Authorization: `Bearer ${access_token}`,
+        },
+      })
+    ).json();
+    let user = await User.findOne({ email: userData.email });
+    if (!user) {
+      user = User.create({
+        avatarUrl: userData.picture,
+        name: userData.name,
+        username: userData.name,
+        email: userData.email,
+        password: "",
+        socialOnly: true,
+        location: userData.locale,
+      });
+    }
+    req.session.loggedIn = true;
+    req.session.user = user;
+    return res.redirect("/");
+  } else {
+    return res.redirect("/signin");
+  }
+};
+
 export const signout = (req, res) => {
+  req.session.user = null;
+  res.locals.loggedInUser = req.session.user;
+  req.session.loggedIn = false;
   return res.redirect("/");
 };
 
