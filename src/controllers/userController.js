@@ -1,8 +1,18 @@
+import User from "../models/User";
+
 export const getSignup = (req, res) => {
   return res.render("signup", { pageTitle: "Sign Up" });
 };
 
-export const postSignup = (req, res) => {
+export const postSignup = async (req, res) => {
+  const { name, username, email, password, location } = req.body;
+  await User.create({
+    name,
+    username,
+    email,
+    password,
+    location,
+  });
   return res.redirect("/signin");
 };
 
