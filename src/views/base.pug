@@ -34,7 +34,7 @@ html(lang="ko")
                 div 
                     ul 
                         li 
-                            a(href="#") #{loggedInUser.username}
+                            a(href=`/users/${loggedInUser._id}`) #{loggedInUser.username}
                         li 
                             a(href="/users/edit") Edit Profile
                         li 
