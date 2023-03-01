@@ -29,9 +29,9 @@ html(lang="ko")
                             a(href="/signin") Sign In 
                 
             else 
-                div 
+                div.header__avatar
                     img(src="/" + loggedInUser.avatarUrl, width="100", height="100")
-                div 
+                div(id="hidden-menu") 
                     ul 
                         li 
                             a(href=`/users/${loggedInUser._id}`) #{loggedInUser.username}
