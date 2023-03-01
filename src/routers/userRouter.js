@@ -11,17 +11,36 @@ import {
   startGoogleSignin,
   startKakaoSignin,
 } from "../controllers/userController";
+import { protectorMiddleware, publicOnlyMiddleware } from "../middlewares";
 
 const userRouter = express.Router();
 
-userRouter.route("/signout").get(signout);
-userRouter.route("/edit").get(getEdit).post(postEdit);
+userRouter.route("/signout").all(protectorMiddleware).get(signout);
+userRouter.route("/edit").all(protectorMiddleware).get(getEdit).post(postEdit);
 userRouter.route("/:id").get(profile);
-userRouter.route("/github/start").get(startGithubSignin);
-userRouter.route("/github/finish").get(finishGithubSignin);
-userRouter.route("/google/start").get(startGoogleSignin);
-userRouter.route("/google/finish").get(finishGoogleSignin);
-userRouter.route("/kakao/start").get(startKakaoSignin);
-userRouter.route("/kakao/finish").get(finishKakaoSignin);
+userRouter
+  .route("/github/start")
+  .all(publicOnlyMiddleware)
+  .get(startGithubSignin);
+userRouter
+  .route("/github/finish")
+  .all(publicOnlyMiddleware)
+  .get(finishGithubSignin);
+userRouter
+  .route("/google/start")
+  .all(publicOnlyMiddleware)
+  .get(startGoogleSignin);
+userRouter
+  .route("/google/finish")
+  .all(publicOnlyMiddleware)
+  .get(finishGoogleSignin);
+userRouter
+  .route("/kakao/start")
+  .all(publicOnlyMiddleware)
+  .get(startKakaoSignin);
+userRouter
+  .route("/kakao/finish")
+  .all(publicOnlyMiddleware)
+  .get(finishKakaoSignin);
 
 export default userRouter;
