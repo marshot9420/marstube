@@ -3,7 +3,9 @@ import {
   finishGithubSignin,
   finishGoogleSignin,
   finishKakaoSignin,
+  getChangePassword,
   getEdit,
+  postChangePassword,
   postEdit,
   profile,
   signout,
@@ -17,6 +19,11 @@ const userRouter = express.Router();
 
 userRouter.route("/signout").all(protectorMiddleware).get(signout);
 userRouter.route("/edit").all(protectorMiddleware).get(getEdit).post(postEdit);
+userRouter
+  .route("/change-password")
+  .all(protectorMiddleware)
+  .get(getChangePassword)
+  .post(postChangePassword);
 userRouter.route("/:id").get(profile);
 userRouter
   .route("/github/start")
