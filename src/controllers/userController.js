@@ -276,13 +276,39 @@ export const getEdit = (req, res) => {
 export const postEdit = async (req, res) => {
   const {
     session: {
-      user: { _id },
+      user: { _id, avatarUrl },
     },
     body: { name, email, username, location },
+    file,
   } = req;
+  const pageTitle = "Edit Your Profile.";
+
+  const sessionEmail = req.session.user.email;
+  const sessionUsername = req.session.user.username;
+
+  if (sessionEmail !== email) {
+    const userExist = Boolean(await User.exists({ email }));
+    if (userExist) {
+      return res.status(400).render("users/edit-profile", {
+        pageTitle,
+        errorMessage: "This email is already taken.",
+      });
+    }
+  }
+
+  if (sessionUsername !== username) {
+    const userExist = Boolean(await User.exists({ username }));
+    if (userExist) {
+      return res.status(400).render("users/edit-profile", {
+        pageTitle,
+        errorMessage: "This username is already taken.",
+      });
+    }
+  }
   const updatedUser = await User.findByIdAndUpdate(
     _id,
     {
+      avatarUrl: file ? file.path : avatarUrl,
       name,
       email,
       username,
