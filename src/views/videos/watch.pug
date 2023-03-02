@@ -1,15 +1,20 @@
 extends ../base
 
 block content
-    video(src="/" + video.fileUrl, controls)
-    div
-        h2=video.title
-        p=video.description
-        small=video.createdAt
-    div
-        small Uploaded by 
+    div.watch
+        video(src="/" + video.fileUrl, controls)
+        div.watch__info.watch__title
+            h2=video.title
+        div.watch__info.watch__author
+            img(src="/" + loggedInUser.avatarUrl).watch__author--img
             a(href=`/users/${video.owner._id}`)=video.owner.username
-    if String(video.owner._id) === String(loggedInUser._id)
-        a(href=`${video.id}/edit`) Edit Video &rarr;
-        br
-        a(href=`${video.id}/delete`) Delete Video &rarr;
+        div.watch__info.watch__meta
+            div.watch__meta--info
+                small 조회수 #{video.meta.views} 회
+                small=video.createdAt
+            div.watch__meat--description
+                p=video.description
+        if String(video.owner._id) === String(loggedInUser._id)
+            div.watch__options
+                a(href=`${video.id}/edit`) Edit Video &rarr;
+                a(href=`${video.id}/delete`) Delete Video &rarr;

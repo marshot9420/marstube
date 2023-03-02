@@ -388,6 +388,61 @@ table {
   }
 }
 
+.watch .watch__info {
+  margin-top: 20px;
+  padding: 10px;
+}
+.watch .watch__title {
+  font-weight: bold;
+  color: #573f31;
+  font-size: 30px;
+}
+.watch .watch__author {
+  display: flex;
+  align-items: center;
+}
+.watch .watch__author .watch__author--img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin: 10px 0px;
+}
+.watch .watch__author a {
+  margin-left: 10px;
+}
+.watch .watch__meta {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: rgba(194, 125, 70, 0.8);
+  cursor: pointer;
+}
+.watch .watch__meta:hover {
+  opacity: 0.6;
+}
+.watch .watch__meta .watch__meta--info {
+  font-weight: bold;
+  margin: 10px 0px;
+}
+.watch .watch__meta .watch__meat--description {
+  color: white;
+}
+.watch .watch__options {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.watch .watch__options a {
+  margin: 10px 0px;
+}
+.watch .watch__options a:hover {
+  text-decoration: underline;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Roboto", sans-serif;
 }

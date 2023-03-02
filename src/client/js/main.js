@@ -3,7 +3,7 @@ import "../img/logo.png";
 import "../img/marstube.png";
 import "../img/404.jpg";
 
-const headerAvatar = document.querySelector(".header__avatar");
+const hiddenBtn = document.querySelector(".hidden__btn");
 const hiddenMenu = document.getElementById("hidden-menu");
 
 hiddenMenu.style.display = "none";
@@ -13,4 +13,4 @@ const handleHiddenMenu = () => {
     hiddenMenu.style.display === "none" ? "block" : "none";
 };
 
-headerAvatar.addEventListener("click", handleHiddenMenu);
+hiddenBtn.addEventListener("click", handleHiddenMenu);
