@@ -1,5 +1,4 @@
 import User from "../models/User";
-import Video from "../models/Video";
 import fetch from "node-fetch";
 import bcrypt from "bcrypt";
 
@@ -367,12 +366,12 @@ export const profile = async (req, res) => {
       model: "User",
     },
   });
+  console.log(user);
   if (!user) {
     return res.status(404).render("404", { pageTitle: "User not found." });
   }
   return res.render("users/profile", {
-    pageTitle: user.name,
+    pageTitle: user.username,
     user,
-    videos: user.videos,
   });
 };
