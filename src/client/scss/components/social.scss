@@ -1,0 +1,14 @@
+.social-container {
+  margin-top: 10px;
+  .social-signin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 260px;
+    font-size: 16px;
+    i {
+      margin-right: 10px;
+    }
+  }
+}

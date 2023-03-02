@@ -8,9 +8,13 @@ block content
             input(type="text", name="username", placeholder="Username", required)
             input(type="password", name="password", placeholder="Password", required)
             input(type="submit", value="Sign In")
-            br
-            a(href="/users/github/start") Continue with Github
-            br
-            a(href="/users/google/start") Continue with Google
-            br
-            a(href="/users/kakao/start") Continue with Kakao
+            div.social-container
+                div.social-signin 
+                    i(class="fa-brands fa-github fa-lg")
+                    a(href="/users/github/start") Continue with Github
+                div.social-signin
+                    i(class="fa-brands fa-google fa-lg")
+                    a(href="/users/google/start") Continue with Google
+                div.social-signin
+                    i(class="fa-solid fa-comment fa-lg")
+                    a(href="/users/kakao/start") Continue with Kakao

@@ -300,6 +300,7 @@ table {
   color: #fff;
 }
 .form-container form:not(.header__search) input[type=submit] {
+  width: 100%;
   cursor: pointer;
   background-color: #c27d46;
   color: white;
@@ -309,6 +310,21 @@ table {
 }
 .form-container form:not(.header__search) a:hover {
   text-decoration: underline;
+}
+
+.social-container {
+  margin-top: 10px;
+}
+.social-container .social-signin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 260px;
+  font-size: 16px;
+}
+.social-container .social-signin i {
+  margin-right: 10px;
 }
 
 body {
