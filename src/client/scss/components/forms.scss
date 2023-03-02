@@ -2,6 +2,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  #actionBtn {
+    margin-top: 20px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    background-color: white;
+    cursor: pointer;
+    &:hover {
+      background-color: $mars;
+      color: white;
+    }
+  }
   img {
     border-radius: 50%;
   }
