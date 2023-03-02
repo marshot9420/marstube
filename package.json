@@ -31,6 +31,8 @@
     "webpack-cli": "^5.0.1"
   },
   "dependencies": {
+    "@ffmpeg/core": "^0.8.5",
+    "@ffmpeg/ffmpeg": "^0.9.7",
     "babel-loader": "^9.1.2",
     "bcrypt": "^5.1.0",
     "connect-mongo": "^4.6.0",
