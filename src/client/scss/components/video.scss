@@ -1,7 +1,6 @@
 .video-mixin {
   .video-mixin__thumb {
     border-radius: 7px;
-    background-color: tomato;
     width: 100%;
     @include responsive("iphone") {
       height: 300px;
