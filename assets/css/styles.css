@@ -168,6 +168,7 @@ table {
   display: flex;
   padding: 0px 70px;
   width: 100%;
+  max-width: 650px;
 }
 .header .header__search .header__search--input {
   height: 40px;
@@ -224,7 +225,6 @@ table {
   cursor: pointer;
 }
 .header #hidden-menu {
-  display: none;
   width: 200px;
   background-color: white;
   position: absolute;
@@ -327,31 +327,6 @@ table {
   margin-right: 10px;
 }
 
-.empty__message {
-  margin-bottom: 50px;
-  font-size: 18px;
-}
-
-.video-grid {
-  display: grid;
-  gap: 50px;
-}
-@media screen and (min-width: 500px) and (max-width: 690px) {
-  .video-grid {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-  }
-}
-@media screen and (min-width: 501px) and (max-width: 1120px) {
-  .video-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-@media screen and (min-width: 1121px) {
-  .video-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
 .video-mixin .video-mixin__thumb {
   border-radius: 7px;
   background-color: tomato;
@@ -388,6 +363,31 @@ table {
   font-size: 12px;
 }
 
+.empty__message {
+  margin-bottom: 50px;
+  font-size: 18px;
+}
+
+.video-grid {
+  display: grid;
+  gap: 50px;
+}
+@media screen and (min-width: 500px) and (max-width: 690px) {
+  .video-grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+@media screen and (min-width: 501px) and (max-width: 1120px) {
+  .video-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media screen and (min-width: 1121px) {
+  .video-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 body {
   font-family: "Roboto", sans-serif;
 }
@@ -403,7 +403,7 @@ a {
 }
 
 main {
-  max-width: 1000px;
+  max-width: 1250px;
   width: 100%;
   margin: 0 auto;
   margin-top: 100px;

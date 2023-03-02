@@ -25,6 +25,7 @@
     display: flex;
     padding: 0px 70px;
     width: 100%;
+    max-width: 650px;
     .header__search--input {
       height: 40px;
       width: 90%;
@@ -87,7 +88,6 @@
     cursor: pointer;
   }
   #hidden-menu {
-    display: none;
     width: 200px;
     background-color: white;
     position: absolute;
