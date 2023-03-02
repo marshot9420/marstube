@@ -1,10 +1,11 @@
 extends ../base
 
 block content 
-    if errorMessage 
-        span=errorMessage
-    form(method="POST")
-        input(type="text", name="title", placeholder="Title" minlength=1, maxlength=80, value=video.title, required)
-        input(type="text", name="description", placeholder="Description", minlength=1, maxlength=500, value=video.description, required)
-        input(type="text", name="hashtags", placeholder="Hashtags", value=video.hashtags.join(), required)
-        input(type="submit" value="Edit")
+    div.form-container
+        if errorMessage 
+            span=errorMessage
+        form(method="POST")
+            input(type="text", name="title", placeholder="Title" minlength=1, maxlength=80, value=video.title, required)
+            input(type="text", name="description", placeholder="Description", minlength=1, maxlength=500, value=video.description, required)
+            input(type="text", name="hashtags", placeholder="Hashtags", value=video.hashtags.join(), required)
+            input(type="submit" value="Edit")

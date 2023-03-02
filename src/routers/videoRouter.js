@@ -17,7 +17,11 @@ videoRouter
   .get(getUpload)
   .post(videoUpload.single("video"), postUpload);
 videoRouter.route("/:id([0-9a-f]{24})").get(watch);
-videoRouter.route("/edit").all(protectorMiddleware).get(getEdit).post(postEdit);
+videoRouter
+  .route("/:id([0-9a-f]{24})/edit")
+  .all(protectorMiddleware)
+  .get(getEdit)
+  .post(postEdit);
 videoRouter
   .route("/:id([0-9a-f]{24})/delete")
   .all(protectorMiddleware)

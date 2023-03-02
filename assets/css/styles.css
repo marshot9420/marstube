@@ -174,7 +174,7 @@ table {
   height: 40px;
   width: 90%;
   padding: 0px 20px;
-  outline-color: #c27d46;
+  outline-color: rgb(194, 125, 70);
   border: 2px solid rgba(0, 0, 0, 0.2);
   border-radius: 30px 0px 0px 30px;
 }
@@ -185,7 +185,7 @@ table {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 44px;
+  height: 40px;
   width: 65px;
   border: 2px solid rgba(0, 0, 0, 0.2);
   border-radius: 0px 30px 30px 0px;
@@ -216,7 +216,7 @@ table {
   opacity: 0.8;
 }
 .header .header__sign ul li:first-child a {
-  background-color: #c27d46;
+  background-color: rgb(194, 125, 70);
 }
 .header .header__avatar {
   height: 40px;
@@ -272,6 +272,7 @@ table {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   padding: 30px;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -285,7 +286,7 @@ table {
   border-radius: 5px;
   margin-bottom: 5px;
   font-size: 16px;
-  width: 90%;
+  width: 100%;
 }
 .form-container form:not(.header__search) input[type=file]::file-selector-button {
   width: 150px;
@@ -296,13 +297,13 @@ table {
   cursor: pointer;
 }
 .form-container form:not(.header__search) input[type=file]::file-selector-button:hover {
-  background: #c27d46;
+  background: rgb(194, 125, 70);
   color: #fff;
 }
 .form-container form:not(.header__search) input[type=submit] {
   width: 100%;
   cursor: pointer;
-  background-color: #c27d46;
+  background-color: rgb(194, 125, 70);
   color: white;
 }
 .form-container form:not(.header__search) input[type=submit]:hover {
@@ -386,6 +387,13 @@ table {
   .video-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+}
+
+footer {
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 50px;
 }
 
 .watch .watch__info {
