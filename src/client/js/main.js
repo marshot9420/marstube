@@ -1,3 +1,4 @@
+import "regenerator-runtime";
 import "../scss/styles.scss";
 import "../img/logo.png";
 import "../img/marstube.png";
