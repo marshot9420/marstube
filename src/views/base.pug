@@ -10,46 +10,7 @@ html(lang="ko")
         include partials/icon
         block head
     body
-        header.header
-            a(href="/").header__home
-                img(src="/static/images/f5c996be24f8f2480be6.png").header__home--img
-                span.header__home--text MarsTube
-            form(method="GET", action="/search").header__search 
-                input(type="text", name="keyword", placeholder="Search by Title", required).header__search--input
-                button(type="submit").header__search--btn
-                    i(class="fa-light fa-magnifying-glass fa-lg")
-            if !loggedIn
-                div.header__sign
-                    ul 
-                        li 
-                            a(href="/signup") Sign Up 
-                        li 
-                            a(href="/signin") Sign In 
-                
-            else 
-                img(src="/" + loggedInUser.avatarUrl).header__avatar
-                div(id="hidden-menu") 
-                    ul 
-                        li 
-                            a(href="/videos/upload") 
-                                div
-                                    i(class="fa-regular fa-video-plus fa-lg")
-                                    span Upload
-                        li 
-                            a(href=`/users/${loggedInUser._id}`) 
-                                div
-                                    i(class="fa-regular fa-user fa-lg")
-                                    span #{loggedInUser.username}
-                        li 
-                            a(href="/users/edit") 
-                                div 
-                                    i(class="fa-regular fa-user-pen fa-lg")
-                                    span Edit Profile
-                        li 
-                            a(href="/users/signout") 
-                                div 
-                                    i(class="fa-regular fa-right-from-bracket fa-lg")
-                                    span Sign Out
+        include partials/header
         main 
             block content 
         include partials/footer

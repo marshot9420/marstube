@@ -1,0 +1,53 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img {
+    border-radius: 50%;
+  }
+  form {
+    max-width: 650px;
+    &:not(.header__search) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px;
+      border-radius: 10px;
+      border: 1px solid rgba($color: #fff, $alpha: 0.1);
+      label {
+        font-size: 30px;
+        font-weight: bold;
+      }
+      input {
+        padding: 15px 20px;
+        border-radius: 5px;
+        margin-bottom: 5px;
+        font-size: 16px;
+        width: 90%;
+        &[type="file"]::file-selector-button {
+          width: 150px;
+          height: 30px;
+          background: #fff;
+          border: 1px solid rgb(77, 77, 77);
+          border-radius: 10px;
+          cursor: pointer;
+          &:hover {
+            background: $mars;
+            color: #fff;
+          }
+        }
+        &[type="submit"] {
+          cursor: pointer;
+          background-color: $mars;
+          color: white;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
