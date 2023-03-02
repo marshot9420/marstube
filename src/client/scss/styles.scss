@@ -7,6 +7,7 @@
 @import "./components/header.scss";
 @import "./components/forms.scss";
 @import "./components/social.scss";
+@import "./components/video.scss";
 
 body {
   font-family: "Roboto", sans-serif;
@@ -23,7 +24,7 @@ a {
 }
 
 main {
-  max-width: 1200px;
+  max-width: 1000px;
   width: 100%;
   margin: 0 auto;
   margin-top: 100px;
