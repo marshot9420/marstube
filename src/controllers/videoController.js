@@ -2,11 +2,10 @@ import Video from "../models/Video";
 import User from "../models/User";
 
 export const home = async (req, res) => {
-  const videos = await Video.find({}).sort({ createdAt: "desc" });
-  return res.render("home", {
-    pageTitle: "Home",
-    videos,
-  });
+  const videos = await Video.find({})
+    .sort({ createdAt: "desc" })
+    .populate("owner");
+  return res.render("home", { pageTitle: "Home", videos });
 };
 
 export const watch = async (req, res) => {
@@ -112,4 +111,15 @@ export const deleteVideo = async (req, res) => {
   }
   await Video.findByIdAndDelete(id);
   return res.redirect("/");
+};
+
+export const registerView = async (req, res) => {
+  const { id } = req.params;
+  const video = await Video.findById(id);
+  if (!video) {
+    return res.status(404);
+  }
+  video.meta.views = video.meta.views + 1;
+  await video.save();
+  return res.status(200);
 };
