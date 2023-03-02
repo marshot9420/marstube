@@ -5,14 +5,261 @@
 /*!**************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/scss/styles.scss (1) ***!
   \**************************************************************************************************************************/
-header {
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.header {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+}
+.header .header__home {
+  display: flex;
+  align-items: center;
+}
+.header .header__home .header__home--img {
+  height: 50px;
+  width: 50px;
+}
+.header .header__home .header__home--text {
+  font-size: 30px;
+  font-weight: bold;
+}
+.header .header__search {
+  display: flex;
+  padding: 0px 70px;
+  width: 100%;
+  max-width: 650px;
+}
+.header .header__search .header__search--input {
+  height: 40px;
+  width: 90%;
+  padding: 0px 20px;
+  outline-color: #c27d46;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 30px 0px 0px 30px;
+}
+.header .header__search .header__search--input::placeholder {
+  font-size: 15px;
+}
+.header .header__search .header__search--btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 44px;
+  width: 65px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0px 30px 30px 0px;
+  cursor: pointer;
+}
+.header .header__search .header__search--btn:hover {
+  opacity: 0.8;
+}
+.header .header__search .header__search--btn i {
+  font-weight: bold;
+}
+.header .header__sign ul {
+  display: flex;
+}
+.header .header__sign ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  height: 40px;
+  width: 100px;
+  font-weight: bold;
+  background-color: #573f31;
+  color: white;
+  margin-left: 10px;
+}
+.header .header__sign ul li a:hover {
+  opacity: 0.8;
+}
+.header .header__sign ul li:first-child a {
+  background-color: #c27d46;
+}
+.header .header__avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.header #hidden-menu {
+  display: none;
+  width: 200px;
+  background-color: white;
+  position: absolute;
+  right: 10px;
+  top: 80px;
+  border-radius: 20px;
+  box-shadow: 1px 2px 2px 1px gainsboro;
+}
+.header #hidden-menu ul li {
+  margin: 10px 0px;
+  width: 100%;
+}
+.header #hidden-menu ul li a {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+}
+.header #hidden-menu ul li a:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.header #hidden-menu ul li a div {
+  padding: 10px;
+}
+.header #hidden-menu ul li a div i {
+  margin-right: 20px;
+}
+.header #hidden-menu ul li a div span {
+  font-weight: bold;
 }
 
 body {
   font-family: "Roboto", sans-serif;
 }
 
-#hidden-menu {
-  display: none;
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
