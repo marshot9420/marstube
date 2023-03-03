@@ -359,19 +359,21 @@ export const postChangePassword = async (req, res) => {
 
 export const profile = async (req, res) => {
   const { id } = req.params;
-  const user = await User.findById(id).populate({
-    path: "videos",
-    populate: {
-      path: "owner",
-      model: "User",
-    },
-  });
-  console.log(user);
-  if (!user) {
-    return res.status(404).render("404", { pageTitle: "User not found." });
+  try {
+    const user = await User.findById(id).populate("videos");
+    if (!user) {
+      return res.status(404).render("404", { pageTitle: "User not found" });
+    }
+    return res.render("users/profile", {
+      pageTitle: user.name,
+      user,
+      videos: user.videos.map((video) => ({
+        ...video.toObject(),
+        thumbUrl: video.thumbUrl,
+        username: user.username,
+      })),
+    });
+  } catch (error) {
+    return res.redirect("/");
   }
-  return res.render("users/profile", {
-    pageTitle: user.username,
-    user,
-  });
 };
