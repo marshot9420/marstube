@@ -1,3 +1,5 @@
+import fetch from "node-fetch";
+
 const videoContainer = document.getElementById("videoContainer");
 const form = document.getElementById("commentForm");
 

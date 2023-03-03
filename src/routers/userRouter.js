@@ -32,7 +32,7 @@ userRouter
   .all(protectorMiddleware)
   .get(getChangePassword)
   .post(postChangePassword);
-userRouter.route("/:id").get(profile);
+userRouter.route("/:id([0-9a-f]{24})").get(profile);
 userRouter
   .route("/github/start")
   .all(publicOnlyMiddleware)
