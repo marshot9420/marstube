@@ -33,6 +33,9 @@
     .watch__meta--info {
       font-weight: bold;
       margin: 10px 0px;
+      small {
+        margin-right: 10px;
+      }
     }
     .watch__meat--description {
       color: white;

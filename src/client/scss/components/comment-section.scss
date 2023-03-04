@@ -1,0 +1,45 @@
+.video__add-comments {
+  .video__comment-form {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    textarea {
+      margin-top: 20px;
+      border: none;
+      border-radius: 10px 0px 0px 10px;
+      height: 50px;
+      width: 80%;
+    }
+    button {
+      background-color: $mars;
+      border-radius: 0px 10px 10px 0px;
+      cursor: pointer;
+      margin: 20px 0px 0px 5px;
+      height: 50px;
+      width: 100px;
+      font-weight: bold;
+      font-size: 15px;
+      color: white;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.video__comments {
+  ul {
+    .video__comment {
+      margin-top: 20px;
+      padding-right: 40px;
+      .video__comment--container {
+        display: flex;
+        justify-content: space-between;
+        #delete__comment,
+        i {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

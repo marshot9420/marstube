@@ -472,6 +472,46 @@ footer {
   cursor: pointer;
 }
 
+.video__add-comments .video__comment-form {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+.video__add-comments .video__comment-form textarea {
+  margin-top: 20px;
+  border: none;
+  border-radius: 10px 0px 0px 10px;
+  height: 50px;
+  width: 80%;
+}
+.video__add-comments .video__comment-form button {
+  background-color: rgb(194, 125, 70);
+  border-radius: 0px 10px 10px 0px;
+  cursor: pointer;
+  margin: 20px 0px 0px 5px;
+  height: 50px;
+  width: 100px;
+  font-weight: bold;
+  font-size: 15px;
+  color: white;
+}
+.video__add-comments .video__comment-form button:hover {
+  opacity: 0.8;
+}
+
+.video__comments ul .video__comment {
+  margin-top: 20px;
+  padding-right: 40px;
+}
+.video__comments ul .video__comment .video__comment--container {
+  display: flex;
+  justify-content: space-between;
+}
+.video__comments ul .video__comment .video__comment--container #delete__comment,
+.video__comments ul .video__comment .video__comment--container i {
+  cursor: pointer;
+}
+
 .watch .watch__info {
   margin-top: 20px;
   padding: 10px;
@@ -507,6 +547,9 @@ footer {
 .watch .watch__meta .watch__meta--info {
   font-weight: bold;
   margin: 10px 0px;
+}
+.watch .watch__meta .watch__meta--info small {
+  margin-right: 10px;
 }
 .watch .watch__meta .watch__meat--description {
   color: white;
@@ -546,6 +589,10 @@ main {
   width: 100%;
   margin: 0 auto;
   margin-top: 100px;
+}
+
+i {
+  text-rendering: optimizeLegibility;
 }
 
 @keyframes goAway {
