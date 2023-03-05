@@ -18,10 +18,11 @@ header.header
         if loggedInUser.avatarUrl === ""
             span.header__avatar.hidden__btn 🌝
         else
-            if loggedInUser.socialOnly
-                img(src=loggedInUser.avatarUrl).header__avatar.hidden__btn
-            else 
-                img(src="/" + loggedInUser.avatarUrl).header__avatar.hidden__btn
+            if loggedInUser.avatarUrl
+                if loggedInUser.avatarUrl.includes("github")
+                    img(src=loggedInUser.avatarUrl).header__avatar.hidden__btn
+                else 
+                    img(src="/" + loggedInUser.avatarUrl).header__avatar.hidden__btn
         div(id="hidden-menu") 
             ul 
                 li 
