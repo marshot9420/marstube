@@ -2,7 +2,7 @@ extends ../base
 
 block content 
     div.form-container
-        img(src="/" + loggedInUser.avatarUrl, height=100, width=100, crossorigin).avatar
+        img(src=loggedInUser.avatarUrl, height=100, width=100, crossorigin).avatar
         if errorMessage 
             span=errorMessage
         form(method="POST", enctype="multipart/form-data")
