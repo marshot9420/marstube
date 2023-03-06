@@ -14,14 +14,24 @@ const isHeroku = process.env.NODE_ENV === "production";
 
 const s3ImageUploader = multerS3({
   s3: s3,
-  bucket: "marstube/images",
+  bucket: "marstube",
   acl: "public-read",
+  key: (request, file, ab_callback) => {
+    const newFileName = Date.now() + "-" + file.originalname;
+    const fullPath = "images/" + newFileName;
+    ab_callback(null, fullPath);
+  },
 });
 
 const s3VideoUploader = multerS3({
   s3: s3,
-  bucket: "marstube/videos",
+  bucket: "marstube",
   acl: "public-read",
+  key: (request, file, ab_callback) => {
+    const newFileName = Date.now() + "-" + file.originalname;
+    const fullPath = "videos/" + newFileName;
+    ab_callback(null, fullPath);
+  },
 });
 
 export const localsMiddleware = (req, res, next) => {
