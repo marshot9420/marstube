@@ -173,3 +173,18 @@ export const deleteComment = async (req, res) => {
 
   return res.sendStatus(200);
 };
+
+export const postLike = async (req, res) => {
+  const { id } = req.params;
+  const { isFilled } = req.body;
+
+  try {
+    const video = await Video.findById(id);
+    video.meta.likes = isFilled ? video.meta.likes - 1 : video.meta.likes + 1;
+    await video.save();
+    res.status(200).json({ likes: video.meta.likes });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ message: "Something went wrong" });
+  }
+};

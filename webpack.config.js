@@ -10,6 +10,7 @@ module.exports = {
     hiddenMenu: BASE_JS + "hiddenMenu.js",
     recorder: BASE_JS + "recorder.js",
     commentSection: BASE_JS + "commentSection.js",
+    like: BASE_JS + "like.js",
   },
   plugins: [
     new MiniCssExtractPlugin({

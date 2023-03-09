@@ -4,6 +4,7 @@ import {
   getEdit,
   getUpload,
   postEdit,
+  postLike,
   postUpload,
   watch,
 } from "../controllers/videoController";
@@ -26,5 +27,6 @@ videoRouter
   .route("/:id([0-9a-f]{24})/delete")
   .all(protectorMiddleware)
   .get(deleteVideo);
+videoRouter.route("/:id([0-9a-f]{24})/like").post(postLike);
 
 export default videoRouter;

@@ -23,8 +23,9 @@ block content
         div.watch__info.watch__title
             h2=video.title
         div.watch__likes 
-            small 좋아요 #{video.meta.likes} 개
-            i.fa-regular.fa-heart.fa-lg 
+            small 좋아요 
+            span#like-count= video.meta.likes
+            i.fa-regular.fa-heart.fa-lg(data-id=video._id, data-likes=video.meta.likes)
         div.watch__info.watch__author
             if video.owner.avatarUrl === undefined
                 img(src="/static/images/af629f3a18c2820c82f3.png").watch__author--img
@@ -58,5 +59,6 @@ block content
                                 span#delete__comment ❌
 block scripts
     script(src="/static/js/videoPlayer.js")
+    script(src="/static/js/like.js")
     if loggedIn
         script(src="/static/js/commentSection.js") 
