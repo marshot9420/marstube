@@ -30,13 +30,19 @@
 .video__comments {
   ul {
     .video__comment {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       margin-top: 20px;
       padding-right: 40px;
       .video__comment--container {
         display: flex;
-        justify-content: space-between;
+        align-items: center;
         #delete__comment,
-        i {
+        img {
+          margin-right: 20px;
+          height: 30px;
+          width: 30px;
           cursor: pointer;
         }
       }

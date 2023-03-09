@@ -23,7 +23,10 @@ block content
         div.watch__info.watch__title
             h2=video.title
         div.watch__info.watch__author
-            img(src=video.owner.avatarUrl crossorigin).watch__author--img
+            if video.owner.avatarUrl === undefined
+                img(src="/static/images/af629f3a18c2820c82f3.png").watch__author--img
+            else
+                img(src=video.owner.avatarUrl crossorigin).watch__author--img
             a(href=`/users/${video.owner._id}`)=video.owner.username
         div.watch__info.watch__meta
             div.watch__meta--info
@@ -45,10 +48,9 @@ block content
                 each comment in video.comments.reverse()
                     li.video__comment(data-id=comment._id)
                         div.video__comment--container
-                            i(class="fa-solid fa-comment fa-lg")
-                        div.video__comment--container
-                            span.video__comment--author #{comment.owner.username}
+                            img(src="/static/images/af629f3a18c2820c82f3.png", height=30, width=30)
                             span.video__comment--content  #{comment.text}
+                        div.video__comment--container
                             if String(loggedInUser._id) === String(comment.owner._id)
                                 span#delete__comment ❌
 block scripts
