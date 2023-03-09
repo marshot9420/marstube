@@ -22,6 +22,9 @@ block content
     div.watch
         div.watch__info.watch__title
             h2=video.title
+        div.watch__likes 
+            small 좋아요 #{video.meta.likes} 개
+            i.fa-regular.fa-heart.fa-lg 
         div.watch__info.watch__author
             if video.owner.avatarUrl === undefined
                 img(src="/static/images/af629f3a18c2820c82f3.png").watch__author--img

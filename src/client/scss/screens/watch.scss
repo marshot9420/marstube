@@ -8,6 +8,14 @@
     color: $deep;
     font-size: 30px;
   }
+  .watch__likes {
+    padding: 10px;
+    font-weight: bold;
+    i {
+      cursor: pointer;
+      margin-left: 10px;
+    }
+  }
   .watch__author {
     display: flex;
     align-items: center;

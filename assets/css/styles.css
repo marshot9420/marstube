@@ -527,6 +527,14 @@ footer {
   color: #573f31;
   font-size: 30px;
 }
+.watch .watch__likes {
+  padding: 10px;
+  font-weight: bold;
+}
+.watch .watch__likes i {
+  cursor: pointer;
+  margin-left: 10px;
+}
 .watch .watch__author {
   display: flex;
   align-items: center;
