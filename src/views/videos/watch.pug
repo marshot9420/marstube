@@ -1,62 +1,9 @@
 extends ../base
 
 block content
-    div#videoContainer(data-id=video._id)
-        video(src=video.fileUrl crossorigin)
-        div#videoControls.videoControls
-            div.videoControls__play
-                span#play.videoControls__playBtn
-                    i.fas.fa-play
-                div.videoControls__time
-                    span#currenTime 00:00
-                    span  / 
-                    span#totalTime 00:00
-            input(type="range",step="1", value="0", min="0")#timeline.videoControls__timeline
-            div.videoControls__volume
-                input(type="range",step="0.1", value=0.5, min="0", max="1")#volume
-                span#mute
-                    i.fas.fa-volume-up
-            div 
-                span#fullScreen
-                    i.fas.fa-expand
-    div.watch
-        div.watch__info.watch__title
-            h2=video.title
-        div.watch__likes 
-            small 좋아요 
-            span#like-count= video.meta.likes
-            i.fa-regular.fa-heart.fa-lg(data-id=video._id, data-likes=video.meta.likes)
-        div.watch__info.watch__author
-            if video.owner.avatarUrl === undefined
-                img(src="/static/images/af629f3a18c2820c82f3.png").watch__author--img
-            else
-                img(src=video.owner.avatarUrl crossorigin).watch__author--img
-            a(href=`/users/${video.owner._id}`)=video.owner.username
-        div.watch__info.watch__meta
-            div.watch__meta--info
-                small 조회수 #{video.meta.views} 회
-                small=new Date(video.createdAt).toLocaleDateString("ko-kr", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})
-            div.watch__meat--description
-                p=video.description
-        if String(video.owner._id) === String(loggedInUser._id)
-            div.watch__options
-                a(href=`${video.id}/edit`) Edit Video &rarr;
-                a(href=`${video.id}/delete`) Delete Video &rarr;
-    if loggedIn
-        div.video__add-comments
-            form.video__comment-form#commentForm
-                textarea(cols="30", rows="10", placeholder="Write a nice commment...")
-                button Add Comment
-    div.video__comments
-            ul
-                each comment in video.comments.reverse()
-                    li.video__comment(data-id=comment._id)
-                        div.video__comment--container
-                            img(src="/static/images/af629f3a18c2820c82f3.png", height=30, width=30)
-                            span.video__comment--content  #{comment.text}
-                        div.video__comment--container
-                            if String(loggedInUser._id) === String(comment.owner._id)
-                                span#delete__comment ❌
+    include ../partials/video
+    include ../partials/video-info
+    include ../partials/comment
 block scripts
     script(src="/static/js/videoPlayer.js")
     script(src="/static/js/like.js")

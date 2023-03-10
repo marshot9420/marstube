@@ -16,6 +16,22 @@
       margin-left: 10px;
     }
   }
+  .watch__hashtags {
+    width: 100%;
+    ul {
+      display: flex;
+      li {
+        display: flex;
+        align-items: center;
+        margin-left: 5px;
+        padding: 5px;
+        border-radius: 10px;
+        height: 20px;
+        background-color: $mars;
+        color: white;
+      }
+    }
+  }
   .watch__author {
     display: flex;
     align-items: center;

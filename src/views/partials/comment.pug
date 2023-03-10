@@ -1,0 +1,15 @@
+if loggedIn
+    div.video__add-comments
+        form.video__comment-form#commentForm
+            textarea(cols="30", rows="10", placeholder="Write a nice commment...")
+            button Add Comment
+div.video__comments
+        ul
+            each comment in video.comments.reverse()
+                li.video__comment(data-id=comment._id)
+                    div.video__comment--container
+                        img(src="/static/images/af629f3a18c2820c82f3.png", height=30, width=30)
+                        span.video__comment--content  #{comment.text}
+                    div.video__comment--container
+                        if String(loggedInUser._id) === String(comment.owner._id)
+                            span#delete__comment ❌
