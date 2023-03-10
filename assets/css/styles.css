@@ -257,6 +257,11 @@ table {
   font-weight: bold;
 }
 
+@media (max-width: 690px) {
+  .header__home--text {
+    display: none;
+  }
+}
 .form-container {
   display: flex;
   flex-direction: column;
@@ -413,6 +418,7 @@ footer {
   position: relative;
 }
 #videoContainer video {
+  max-height: 650px;
   width: 100%;
   cursor: pointer;
 }

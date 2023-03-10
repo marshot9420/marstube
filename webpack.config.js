@@ -11,6 +11,7 @@ module.exports = {
     recorder: BASE_JS + "recorder.js",
     commentSection: BASE_JS + "commentSection.js",
     like: BASE_JS + "like.js",
+    responsive: BASE_JS + "responsive.js",
   },
   plugins: [
     new MiniCssExtractPlugin({
