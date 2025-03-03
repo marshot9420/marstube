@@ -2,12 +2,13 @@
   "name": "marstube",
   "version": "1.0.0",
   "scripts": {
-    "start:dev": "nodemon -L --exec babel-node ./src/main.js"
+    "start:dev": "nodemon -L --exec babel-node ./src/init.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "mongoose": "^8.11.0",
     "morgan": "^1.10.0",

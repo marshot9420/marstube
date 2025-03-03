@@ -1,1 +1,31 @@
-node_modules
+# 컴파일 결과
+/dist
+/node_modules
+/build
+
+# 운영체제
+.DS_Store
+
+# 편집기
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# 편집기 - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# temp 디렉토리
+.temp
+.tmp
+
+# 환경변수
+.env*
+!.env*.template
