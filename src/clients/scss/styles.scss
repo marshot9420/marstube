@@ -1,4 +1,4 @@
-@import "./configs/variables";
+@use "./configs/variables" as *;
 
 body {
   background-color: $red;
