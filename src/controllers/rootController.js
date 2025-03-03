@@ -1,3 +1,3 @@
 export const rootController = async (req, res) => {
-  return res.render("index", { title: "MarsTube", message: "MarsTube" });
+  return res.render("pages/home", { title: "MarsTube", message: "MarsTube" });
 };
