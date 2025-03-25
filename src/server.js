@@ -3,6 +3,7 @@ import "./database";
 import express from "express";
 import morgan from "morgan";
 
+import { URLS } from "./constants/urls";
 import rootRouter from "./routers/rootRouter";
 
 const app = express();
@@ -14,8 +15,8 @@ app.set("views", process.cwd() + "/src/views");
 app.use(logger);
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/static", express.static("dist"));
+app.use(URLS.STATIC.PREFIX, express.static("dist"));
 
-app.use("/", rootRouter);
+app.use(URLS.CLIENT.HOME, rootRouter);
 
 export default app;
